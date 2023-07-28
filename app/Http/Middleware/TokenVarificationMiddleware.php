@@ -18,15 +18,10 @@ class TokenVarificationMiddleware
     {
 
         $token = $request->header('token');
-        $result = JWTToken::varifyToken($token);
-
-       
+        $result = JWTToken::varifyToken($token);      
 
         if($result == 'Unauthorized'){
-            return response()->json([
-                'status'=>'Failed',
-                'message'=>'Unauthorized from middleware'
-            ], 401);
+            return redirect('/user-login');
         }else{
             $request->headers->set('email', $result);
             return $next($request);
