@@ -23,7 +23,7 @@ return new class extends Migration
             ->restrictOnDelete();
 
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('created_at')->useCurrent()->useCurrentOnUpdate();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

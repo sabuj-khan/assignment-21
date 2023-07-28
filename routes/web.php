@@ -28,5 +28,9 @@ Route::post('/otp-varify', [UserController::class, 'OTPVarification']);
 
 Route::post('/reset-password', [UserController::class, 'resetPassword'])
 ->middleware([TokenVarificationMiddleware::class]);
+
+// User Logout end-point
+Route::post('/logout', [UserController::class, 'userLogout']);
+
 Route::post('/profile-update', [UserController::class, 'profileUpdate']);
 

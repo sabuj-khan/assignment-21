@@ -53,7 +53,6 @@ class UserController extends Controller
         }
     }
 
-
     function sendOTPToEmail(Request $request){
         $email = $request->input('email');
         $otp = rand(1000, 9999);
@@ -127,6 +126,10 @@ class UserController extends Controller
     }
     function profileUpdate(){
 
+    }
+
+    function userLogout(){
+        return redirect('/user-login')->cookie('token', '', -1);
     }
 }
 
